@@ -64,7 +64,7 @@ class DegenerativeTriangleResults extends Component {
           <FormInputButton click={this.onClickSticksSubmit} innerHtml="Submit" />
         </div>
 
-        <table>
+        <table className="results">
           <thead>
             <TableHeaders headers={["Sticks", "Maximum Perimeter"]} />
           </thead>
@@ -75,7 +75,6 @@ class DegenerativeTriangleResults extends Component {
             })
           }
           </tbody>
-          {/* <TableRow key={0} data={["1 1 1 3 3", "3 3 1"]} /> */}
         </table>
 
       </form>

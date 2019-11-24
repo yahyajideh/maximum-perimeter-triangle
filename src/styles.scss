@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Raleway');
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Raleway|Raleway:800');
 
 body {
   background-color: #ee0247;
@@ -9,6 +9,19 @@ body {
   margin: auto;
   margin-top: 50px;
   padding-top: 100px;
+}
+
+.results {
+  font-family: 'Raleway', sans-serif;
+  text-align: left;
+
+  & > th {
+    font-weight: 800;
+  }
+
+  &__cell {
+    padding: 5px 30px 5px 0px;
+  }
 }
 
 .dynamicForm {
