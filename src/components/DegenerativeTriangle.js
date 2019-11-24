@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import SticksInput from './SticksInput';
 import FormInputButton from './FormSubmitButton'
 
@@ -33,7 +33,7 @@ class DegenerativeTriangle extends Component {
     event.preventDefault();
     const filteredValues = this.state.fields.filter(value => value);
     if(filteredValues.length <= 0) {
-      alert('No value entered!');
+      alert('No sticks entered!');
       return;
     }
     console.log('Filtered values', filteredValues);
@@ -45,6 +45,11 @@ class DegenerativeTriangle extends Component {
       this.state.fields.length > 1 ? true : false;
 
     return (
+      <Fragment>
+        <div className="header">
+          <h1 className="header__title">Maximum Perimeter Triangle</h1>
+          <p className="header__help">Hit "Enter" to add new line. Click 'X' to remove.</p>
+        </div>
       <form className="dynamicForm">
         <div className="dynamicForm__buttonWrapper">
           <FormInputButton
@@ -52,7 +57,7 @@ class DegenerativeTriangle extends Component {
             type="ghost"
             innerHtml="Add Field"
           />
-          <FormInputButton click={this.onClickSticksSubmit} innerHtml="Submit" />
+          <FormInputButton click={this.onClickSticksSubmit} innerHtml="Calculate" />
         </div>
 
         {this.state.fields.map((value, index) => (
@@ -65,6 +70,7 @@ class DegenerativeTriangle extends Component {
           />
         ))}
       </form>
+      </Fragment>
     );
   }
 }

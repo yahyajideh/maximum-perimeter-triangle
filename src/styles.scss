@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Raleway|Raleway:800');
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Raleway:100|Raleway:800|Raleway:400');
 
 body {
-  background-color: #ee0247;
+  background-color: #2a2734;
   padding: 20px;
 }
 
@@ -9,6 +9,23 @@ body {
   margin: auto;
   margin-top: 50px;
   padding-top: 100px;
+}
+
+.header {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  
+  &__title {
+    font-weight: 100;
+    font-size: 60px;
+    letter-spacing: .03em;
+    color: #9b87fd;
+  }
+
+  &__help {
+    color: #fff;
+    font-weight: 400;
+  }
 }
 
 .results {

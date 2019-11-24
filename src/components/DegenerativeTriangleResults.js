@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component, Fragment } from 'react';
 import FormInputButton from './FormSubmitButton';
 import TableHeaders from './TableHeaders';
 import TableRow from './TableRow';
@@ -18,7 +17,7 @@ class DegenerativeTriangleResults extends Component {
     if(state.fields) {
       const fields = state.fields;
       const results = fields.map((field) => {
-        return this.computeSides(field.split(' '));
+        return this.computeSides(field.replace(/\s\s+/g, ' ').split(' '));
       })
 
       this.setState({ results, fields })
@@ -33,7 +32,6 @@ class DegenerativeTriangleResults extends Component {
   }
 
   computeSides(sides) {
-    
     sides.reverse();
     let found = -1;
 
@@ -59,25 +57,31 @@ class DegenerativeTriangleResults extends Component {
 
     const { fields, results } = this.state;
     return (
-      <form className="dynamicForm">
-        <div className="dynamicForm__buttonWrapper">
-          <FormInputButton click={this.onClickSticksSubmit} innerHtml="Submit" />
+      <Fragment>
+        <div className="header">
+          <h1 className="header__title">Maximum Perimeter Triangle</h1>
+          <p className="header__help">-1: Degenerate Triangle / Incorrect Input</p>
         </div>
+        <form className="dynamicForm">
+          <div className="dynamicForm__buttonWrapper">
+            <FormInputButton click={this.onClickSticksSubmit} innerHtml="New Input" />
+          </div>
 
-        <table className="results">
-          <thead>
-            <TableHeaders headers={["Sticks", "Maximum Perimeter"]} />
-          </thead>
-          <tbody>
-          {
-            fields.map((field, index) => {
-              return <TableRow key={index} data={[field, results[index]]} />
-            })
-          }
-          </tbody>
-        </table>
+          <table className="results">
+            <thead>
+              <TableHeaders headers={["Sticks", "Maximum Perimeter"]} />
+            </thead>
+            <tbody>
+            {
+              fields.map((field, index) => {
+                return <TableRow key={index} data={[field, results[index]]} />
+              })
+            }
+            </tbody>
+          </table>
 
-      </form>
+        </form>
+      </Fragment>
     );
   }
 }
