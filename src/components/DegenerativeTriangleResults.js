@@ -13,7 +13,7 @@ class DegenerativeTriangleResults extends Component {
 
   isInt(n) {
     n = parseInt(n);
-    return Number(n) === n && n % 1 === 0;
+    return Number(n) === n && n % 1 === 0 && n > 0;
   }
 
   isFloat(n) {
@@ -21,7 +21,7 @@ class DegenerativeTriangleResults extends Component {
     return Number(n) === n && n % 1 !== 0;
   }
 
-  isValid(n) {
+  isValidInput(n) {
     if (this.isInt(n) && !this.isFloat(n)) {
       return true;
     }
@@ -37,8 +37,8 @@ class DegenerativeTriangleResults extends Component {
         sticks = sticks.replace(/\s\s+/g, ' ').split(' ');
         
         // check only integers have been entered
-        const valid = sticks.some(i => this.isValid(i));
-        if (!valid) {
+        const validSticks = sticks.some(i => this.isValidInput(i));
+        if (!validSticks) {
           return -1;
         }  
         
