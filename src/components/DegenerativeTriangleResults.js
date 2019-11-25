@@ -36,11 +36,13 @@ class DegenerativeTriangleResults extends Component {
       const results = sticksList.map((sticks) => {
         sticks = sticks.replace(/\s\s+/g, ' ').split(' ');
         
-        // check only integers have been entered
-        const validSticks = sticks.some(i => this.isValidInput(i));
-        if (!validSticks) {
-          return -1;
-        }  
+        // check only positive integers have been entered
+        // TODO: change to es6 format
+        for (let i = 0; i < sticks.length; i++) {
+          if (!this.isValidInput(sticks[i])) {
+            return -1;
+          }
+        }
         
         return this.computeMaxPerimeter(sticks);
       })
