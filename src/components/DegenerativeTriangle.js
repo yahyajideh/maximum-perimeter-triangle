@@ -5,7 +5,7 @@ import FormInputButton from './FormSubmitButton';
 class DegenerativeTriangle extends Component {
   constructor(props) {
     super(props);
-    this.state = { fields: [""] };
+    this.state = { sticksList: [""] };
     this.onClickSticksNewInput = this.onClickSticksNewInput.bind(this);
     this.onClickSticksSubmit = this.onClickSticksSubmit.bind(this);
   }
@@ -13,36 +13,36 @@ class DegenerativeTriangle extends Component {
   onClickSticksNewInput(event) {
     event.preventDefault();
     this.setState({
-      fields: ["", ...this.state.fields]
+      sticksList: ["", ...this.state.sticksList]
     });
   }
 
-  onClickFormGroupButton(index) {
-    let fields = [...this.state.fields];
-    fields.splice(index, 1);
-    this.setState({ fields });
+  onClickSticksInput(index) {
+    let sticksList = [...this.state.sticksList];
+    sticksList.splice(index, 1);
+    this.setState({ sticksList });
   }
 
-  onChangeFormGroupInput(index, event) {
-    let fields = [...this.state.fields];
-    fields[index] = event.target.value;
-    this.setState({ fields });
+  onChangeSticksInput(index, event) {
+    let sticksList = [...this.state.sticksList];
+    sticksList[index] = event.target.value;
+    this.setState({ sticksList });
   }
 
   onClickSticksSubmit(event) {
     event.preventDefault();
-    const filteredValues = this.state.fields.filter(value => value);
-    if(filteredValues.length <= 0) {
+    const filteredSticks = this.state.sticksList.filter(value => value);
+    if(filteredSticks.length <= 0) {
       alert('No sticks entered!');
       return;
     }
-    console.log('Filtered values', filteredValues);
-    this.props.history.push('/results', {fields: filteredValues});
+    console.log('Filtered values', filteredSticks);
+    this.props.history.push('/results', {sticksList: filteredSticks});
   }
 
   render() {
     const removeSticksInput =
-      this.state.fields.length > 1 ? true : false;
+      this.state.sticksList.length > 1 ? true : false;
 
     return (
       <Fragment>
@@ -61,10 +61,10 @@ class DegenerativeTriangle extends Component {
           <FormInputButton click={this.onClickSticksSubmit} innerHtml="Calculate" />
         </div>
 
-        {this.state.fields.map((value, index) => (
+        {this.state.sticksList.map((value, index) => (
           <SticksInput
-            inputChange={this.onChangeFormGroupInput.bind(this, index)}
-            buttonClick={this.onClickFormGroupButton.bind(this, index)}
+            inputChange={this.onChangeSticksInput.bind(this, index)}
+            buttonClick={this.onClickSticksInput.bind(this, index)}
             buttonDisabled={index === 0 ? !removeSticksInput : undefined}
             value={value}
             key={index}
