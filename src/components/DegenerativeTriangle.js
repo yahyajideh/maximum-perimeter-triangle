@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import SticksInput from './SticksInput';
-import FormInputButton from './FormSubmitButton'
+import FormInputButton from './FormSubmitButton';
 
 class DegenerativeTriangle extends Component {
   constructor(props) {
@@ -49,13 +49,14 @@ class DegenerativeTriangle extends Component {
         <div className="header">
           <h1 className="header__title">Maximum Perimeter Triangle</h1>
           <p className="header__help">Hit "Enter" to add new line. Click 'X' to remove.</p>
+          <p className="header__help">Each input is a new triangle.</p>
         </div>
       <form className="dynamicForm">
         <div className="dynamicForm__buttonWrapper">
           <FormInputButton
             click={this.onClickSticksNewInput}
             type="ghost"
-            innerHtml="Add Field"
+            innerHtml="Add New Triangle"
           />
           <FormInputButton click={this.onClickSticksSubmit} innerHtml="Calculate" />
         </div>
@@ -70,6 +71,9 @@ class DegenerativeTriangle extends Component {
           />
         ))}
       </form>
+      <div class="githubLink">
+        <a target="_blank" href="https://github.com/yahyajideh/maximum-perimeter-triangle">view code here: <i class="fab fa-github"></i></a> 
+      </div>
       </Fragment>
     );
   }

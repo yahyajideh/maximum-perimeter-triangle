@@ -8,6 +8,7 @@ function SticksInput(props) {
         type="text"
         value={props.value}
         onChange={props.inputChange}
+        placeholder="Enter sticks (seperate sticks with a space)"
       />
       <button
         className="dynamicForm__itemButton"

@@ -62,7 +62,7 @@ class DegenerativeTriangleResults extends Component {
           <h1 className="header__title">Maximum Perimeter Triangle</h1>
           <p className="header__help">-1: Degenerate Triangle / Incorrect Input</p>
         </div>
-        <form className="dynamicForm">
+        <div className="dynamicForm">
           <div className="dynamicForm__buttonWrapper">
             <FormInputButton click={this.onClickSticksSubmit} innerHtml="New Input" />
           </div>
@@ -79,8 +79,10 @@ class DegenerativeTriangleResults extends Component {
             }
             </tbody>
           </table>
-
-        </form>
+        </div>
+        <div class="githubLink">
+        <a target="_blank" href="https://github.com/yahyajideh/maximum-perimeter-triangle">view code here: <i class="fab fa-github"></i></a> 
+      </div>
       </Fragment>
     );
   }

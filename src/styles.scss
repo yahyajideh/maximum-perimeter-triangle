@@ -75,7 +75,7 @@ body {
     justify-content: space-between;
     padding: $horizontal-padding;
     box-sizing: border-box;
-    background-color: #ffd41d;
+    background-color: #ed49ab;
   }
   
   &__button {
@@ -86,20 +86,21 @@ body {
     height: 40px;
     padding: 0 15px;
     border-radius: 3px;
-    background-color: #ef004a;
+    background-color: rgb(113, 73, 238);
     color: #fff;
     cursor: pointer;
     box-shadow:
       0 2px 2px 0 rgba(0,0,0,0.14),
       0 3px 1px -2px rgba(0,0,0,0.12),
       0 1px 5px 0 rgba(0,0,0,0.2),
-      inset 2px -2px #cc024b;
+      inset 2px -2px #4b2ab7;
   }
   
   &__button--isGhost {
     background-color: transparent;
-    color: #ef004a;
+    color: #fff;
     box-shadow: initial;
+    font-weight: 100;
   }
   
   &__item {
@@ -167,5 +168,22 @@ body {
     &::after {
       transform: rotate(-45deg);
     }
+  }
+}
+
+.githubLink {
+  display: inline-block;
+  font-size: 18px;
+  font-family: 'Raleway', sans-serif;
+  color: #6c6783;
+  bottom: 2%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  margin-top: 5vh;
+
+  & > a {
+    color: #6c6783;
+    text-decoration: none;
   }
 }
