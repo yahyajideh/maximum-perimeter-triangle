@@ -71,7 +71,7 @@ class DegenerativeTriangle extends Component {
           />
         ))}
       </form>
-      <div class="githubLink">
+      <div className="githubLink">
         <a target="_blank" href="https://github.com/yahyajideh/maximum-perimeter-triangle">view code here: <i class="fab fa-github"></i></a> 
       </div>
       </Fragment>

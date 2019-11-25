@@ -11,17 +11,38 @@ class DegenerativeTriangleResults extends Component {
     this.onClickNewInput = this.onClickNewInput.bind(this);
   }
 
+  isInt(n) {
+    n = parseInt(n);
+    return Number(n) === n && n % 1 === 0;
+  }
+
+  isFloat(n) {
+    n = parseFloat(n);
+    return Number(n) === n && n % 1 !== 0;
+  }
+
+  isValid(n) {
+    if (this.isInt(n) && !this.isFloat(n)) {
+      return true;
+    }
+    return false;
+  }
+
   componentDidMount() {
     const { state } = this.props.location;
     
     if(state.sticksList) {
       const sticksList = state.sticksList;
-      const results = sticksList.map((field) => {
+      const results = sticksList.map((sticks) => {
+        sticks = sticks.replace(/\s\s+/g, ' ').split(' ');
+        
         // check only integers have been entered
-        if (!Number.isInteger(parseInt(field.replace(/\s\s+/g, '')))) {
+        const valid = sticks.some(i => this.isValid(i));
+        if (!valid) {
           return -1;
-        }
-        return this.computeMaxPerimeter(field.replace(/\s\s+/g, ' ').split(' '));
+        }  
+        
+        return this.computeMaxPerimeter(sticks);
       })
 
       this.setState({ results, sticksList })
@@ -93,14 +114,14 @@ class DegenerativeTriangleResults extends Component {
             </thead>
             <tbody>
             {
-              sticksList.map((field, index) => {
-                return <TableRow key={index} data={[field, results[index]]} />
+              sticksList.map((sticks, index) => {
+                return <TableRow key={index} data={[sticks, results[index]]} />
               })
             }
             </tbody>
           </table>
         </div>
-        <div class="githubLink">
+        <div className="githubLink">
         <a target="_blank" href="https://github.com/yahyajideh/maximum-perimeter-triangle">view code here: <i class="fab fa-github"></i></a> 
       </div>
       </Fragment>
