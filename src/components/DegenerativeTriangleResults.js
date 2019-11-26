@@ -63,8 +63,8 @@ class DegenerativeTriangleResults extends Component {
   */
   computeMaxPerimeter(sides) {
     // sort array in descending order
-    sides.sort();
-    sides.reverse();
+    sides.sort((a,b) => b - a);
+
     let found = -1;
 
     /* 
