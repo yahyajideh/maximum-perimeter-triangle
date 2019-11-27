@@ -31,13 +31,13 @@ class DegenerativeTriangle extends Component {
 
   onClickSticksSubmit(event) {
     event.preventDefault();
-    const filteredSticks = this.state.sticksList.filter(value => value);
-    if(filteredSticks.length <= 0) {
+    const sticksList = this.state.sticksList;
+    if(sticksList.length <= 0) {
       alert('No sticks entered!');
       return;
     }
-    console.log('Filtered values', filteredSticks);
-    this.props.history.push('/results', {sticksList: filteredSticks});
+    console.log('Filtered values', sticksList);
+    this.props.history.push('/results', {sticksList});
   }
 
   render() {

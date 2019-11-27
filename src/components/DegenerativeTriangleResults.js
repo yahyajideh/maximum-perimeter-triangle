@@ -34,7 +34,7 @@ class DegenerativeTriangleResults extends Component {
     if(state.sticksList) {
       const sticksList = state.sticksList;
       const results = sticksList.map((sticks) => {
-        sticks = sticks.replace(/\s\s+/g, ' ').split(' ');
+        sticks = sticks.trim().replace(/\s\s+/g, ' ').split(' '); //1 a 1.2
         
         // check only positive integers have been entered
         // TODO: change to es6 format
@@ -66,7 +66,6 @@ class DegenerativeTriangleResults extends Component {
     sides.sort((a,b) => b - a);
 
     let found = -1;
-
     /* 
     max perimeter triangle will be the first 3 sides that
     are non-degenerative
