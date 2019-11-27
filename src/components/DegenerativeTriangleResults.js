@@ -72,7 +72,7 @@ class DegenerativeTriangleResults extends Component {
     */
     for (let i = 0; i < sides.length - 2; i++) {
         if (!this.degenerativeTriangle(sides[i], sides[i+1], sides[i+2])) {
-            found = sides[i] + " " + sides[i+1] + " " + sides[i+2];
+            found = sides[i+2] + " " + sides[i+1] + " " + sides[i];
             break;
         }
     }
